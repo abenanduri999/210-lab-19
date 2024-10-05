@@ -18,18 +18,16 @@ class Movie
         }; 
     
     public: 
-        Node * newNode = nullptr;
+        
         void setTitle(string t) {title = t;}
-        void setNode(Node * head, double value, string rev) {head->data = value, head->review = rev;}
         string getTitle() const {return title;}
-        //double getNode() const {}
+
 };
 
 int main() {
 
     ifstream input; 
     input.open("input.txt"); 
-    
-
+    const int SIZE = 4; 
 
 }
