@@ -25,8 +25,8 @@ class Movie
     public: 
         
         Movie() {head = nullptr;}
-        void addToHead(); 
-        void display(); 
+        void addToHead();
+        void display();
         void setTitle(string t) {title = t;}
         string getTitle() const {return title;}
 
@@ -35,19 +35,20 @@ class Movie
 int main() {
 
     Movie m1, m2, m3, m4;
-    
+    vector<Movie> movies; 
+
     m1.setTitle("Oppenheimer");
     m2.setTitle("Heart of Stone");
     m3.setTitle("Fast and Furious");
     m4.setTitle("Faster than the Speed of Love");
 
-     
-
+    cout<<m1.getTitle()<<endl; 
+    m1.addToHead(); 
    
 
 }
 
-void Movie::addToHead()
+void Movie:: addToHead()
 {
     for(int i = 0; i < SIZE; i++) 
     {
@@ -81,11 +82,22 @@ void Movie::addToHead()
         newNode->next = head; 
         newNode->data = num;
         head = newNode; 
+        
     }
+    display();
     }
+
+     
 }
 
 void Movie::display() 
 {
-    
+    Node * current; 
+    current = head; 
+
+    while(current) 
+    {
+        cout<<current->data<<" "<<current->review<<endl; 
+        current = current->next; 
+    }
 } 
