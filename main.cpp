@@ -72,6 +72,8 @@ void Movie:: addToHead()
     string r1; 
     if(input.is_open()) 
     {
+        streampos pos = input.tellg(); 
+        input.seekg(pos); 
         getline(input, r1);    
         newNode->review = r1; 
         
