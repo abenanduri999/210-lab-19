@@ -14,14 +14,16 @@ class Movie
             double data; 
             string review; 
         }; 
-
+    
     public: 
-        Movie() {}
-
-
+        void setTitle(string t) {title = t;}
+        void setNode(Node * head, double val, string rev) {head->data = val, head->review = rev;}
+        string getTitle() {return title;}
+        double getData() {return data;}
 };
 
 int main() {
+
 
 
 }
