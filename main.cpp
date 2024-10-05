@@ -52,31 +52,30 @@ int main() {
         movies[i].addToHead(); 
         cout<<endl; 
     }
-    //cout<<m1.getTitle()<<endl; 
-    //m1.addToHead(); 
-    //cout<<endl; 
-   
 
+    return 0; 
 }
 
 void Movie:: addToHead()
 {
+    
     for(int i = 0; i < SIZE; i++) 
     {
+      
     Node * newNode; 
     newNode = new Node;
     double num = rand() % 5; 
 
-    ifstream input; 
+     ifstream input;
     input.open("input.txt"); 
     string r1; 
     if(input.is_open()) 
     {
-        streampos pos = input.tellg(); 
-        input.seekg(pos); 
+      
+        
         getline(input, r1);    
         newNode->review = r1; 
-        
+       
     } 
     
     input.close(); 
