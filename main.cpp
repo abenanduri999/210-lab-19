@@ -25,8 +25,11 @@ class Movie
     public: 
         
         Movie() {head = nullptr;}
-        void addToHead();
+        
         void display();
+        void addReview(double num){ head->data = num;}
+        void addTextRev(string rev) {head ->review = rev;}
+        void addToHead(double num, string rev);
         void setTitle(string t) {title = t;}
         string getTitle() const {return title;}
 
@@ -47,9 +50,10 @@ int main() {
     movies.push_back(m4); 
 
     for(int i = 0; i < movies.size(); i++)
-    {
+    {   
+        double num = rand() % 5; 
         cout<<movies[i].getTitle()<<endl;
-        movies[i].addToHead(); 
+        movies[i].addToHead(num); 
         cout<<endl; 
     }
 
