@@ -16,9 +16,23 @@ class Movie
             string review; 
             Node * next;
         }; 
+
+        Node * head; 
     
     public: 
         
+        Movie() {head = nullptr;}
+        void addToHead(double num) 
+            {
+                Node * newNode; 
+                Node * current; 
+
+                newNode = new Node; 
+                newNode->data = num;
+                newNode->next = nullptr; 
+
+
+            } 
         void setTitle(string t) {title = t;}
         string getTitle() const {return title;}
 
@@ -31,3 +45,4 @@ int main() {
     const int SIZE = 4; 
 
 }
+
