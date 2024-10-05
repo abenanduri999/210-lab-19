@@ -84,8 +84,7 @@ void Movie:: addToHead()
     for(int i = 0; i < SIZE; i++) 
     {
       
-    Node * newNode; 
-    newNode = new Node;
+    Node * newNode = new Node;
     double num = rand() % 5; 
 
     //ifstream input;
@@ -104,9 +103,10 @@ void Movie:: addToHead()
         {
         
         head = newNode; 
-        newNode->data = num;
-       // newNode->review = r1;
         newNode->next = nullptr; 
+        newNode->data = num;
+        newNode->review = reviews[i];
+       
         
         }
         
@@ -114,7 +114,7 @@ void Movie:: addToHead()
     {
         newNode->next = head; 
         newNode->data = num;
-        //newNode->review = r1;
+        newNode->review = reviews[i];
         head = newNode; 
         
     }
