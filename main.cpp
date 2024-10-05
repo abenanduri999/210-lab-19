@@ -52,15 +52,25 @@ int main() {
     for(int i = 0; i < movies.size(); i++)
     {   
         double num = rand() % 5; 
+        ifstream input;
+    input.open("input.txt"); 
+    string r1; 
+    if(input.is_open()) 
+    {   
+        getline(input, r1);     
+        input.close();
+    } 
+    
+            
         cout<<movies[i].getTitle()<<endl;
-        movies[i].addToHead(num); 
+        movies[i].addToHead(num, r1); 
         cout<<endl; 
     }
 
     return 0; 
 }
 
-void Movie:: addToHead()
+void Movie:: addToHead(double num, string r1)
 {
     
     for(int i = 0; i < SIZE; i++) 
@@ -73,7 +83,7 @@ void Movie:: addToHead()
      ifstream input;
     input.open("input.txt"); 
     string r1; 
-    if(input.is_open()) 
+   /* if(input.is_open()) 
     {
       
         
@@ -82,7 +92,7 @@ void Movie:: addToHead()
        
     } 
     
-    input.close(); 
+    input.close(); */
     
 
     if(!head)
@@ -90,6 +100,7 @@ void Movie:: addToHead()
         
         head = newNode; 
         newNode->data = num;
+        newNode->review = r1; 
         newNode->next = nullptr; 
         
         }
