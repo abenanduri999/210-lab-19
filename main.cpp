@@ -2,6 +2,7 @@
 
 #include<iostream>
 #include<vector>
+#include<fstream>
 
 using namespace std; 
 
@@ -13,17 +14,22 @@ class Movie
         {
             double data; 
             string review; 
+            Node * next;
         }; 
     
     public: 
+        Node * newNode = nullptr;
         void setTitle(string t) {title = t;}
-        void setNode(Node * head, double val, string rev) {head->data = val, head->review = rev;}
-        string getTitle() {return title;}
-        double getData() {return data;}
+        void setNode(Node * head, double value, string rev) {head->data = value, head->review = rev;}
+        string getTitle() const {return title;}
+        //double getNode() const {}
 };
 
 int main() {
 
+    ifstream input; 
+    input.open("input.txt"); 
+    
 
 
 }
