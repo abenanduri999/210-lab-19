@@ -41,9 +41,20 @@ int main() {
     m2.setTitle("Heart of Stone");
     m3.setTitle("Fast and Furious");
     m4.setTitle("Faster than the Speed of Love");
+    movies.push_back(m1);
+    movies.push_back(m2);
+    movies.push_back(m3);
+    movies.push_back(m4); 
 
-    cout<<m1.getTitle()<<endl; 
-    m1.addToHead(); 
+    for(int i = 0; i < movies.size(); i++)
+    {
+        cout<<movies[i].getTitle()<<endl;
+        movies[i].addToHead(); 
+        cout<<endl; 
+    }
+    //cout<<m1.getTitle()<<endl; 
+    //m1.addToHead(); 
+    //cout<<endl; 
    
 
 }
@@ -61,11 +72,12 @@ void Movie:: addToHead()
     string r1; 
     if(input.is_open()) 
     {
-        while(getline(input, r1))
-        {
-            newNode->review = r1; 
-        }
+        getline(input, r1);    
+        newNode->review = r1; 
+        
     } 
+    
+    input.close(); 
     
 
     if(!head)
@@ -94,10 +106,11 @@ void Movie::display()
 {
     Node * current; 
     current = head; 
+    int count = 0; 
 
-    while(current) 
+    while(current->next != nullptr) 
     {
-        cout<<current->data<<" "<<current->review<<endl; 
+        cout<<"\tReview: "<<current->data<<": "<<current->review<<endl; 
         current = current->next; 
-    }
+    }       
 } 
