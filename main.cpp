@@ -62,7 +62,7 @@ int main() {
     int count = 0; 
     for(int i = 0; i < movies.size(); i++)
     {       
-        
+        cout<<endl;
         cout<<movies[i].getTitle()<<endl;
         count = movies[i].addToHead(count);   
         movies[i].display(); 
@@ -72,71 +72,6 @@ int main() {
     return 0; 
 }
 
-/*void Movie:: addToHead()
-{
-    vector <string> reviews; 
-        
-    ifstream input;
-    input.open("input.txt"); 
-    
-    
-    string r1, r2, r3; 
-    if(input.is_open()) 
-    {
-        
-       while(getline(input, r1))
-       {
-            reviews.push_back(r1); 
-            getline(input, r2); 
-            reviews.push_back(r2); 
-            getline(input, r3);
-            reviews.push_back(r3);
-       }    
-        input.close();
-    } 
-
-    for(int i = 0; i < SIZE; i++) 
-    {
-      
-    Node * newNode = new Node;
-    double num = rand() % 5; 
-
-    //ifstream input;
-    //input.open("input.txt"); 
-    
-    
-    string r1; 
-    if(input.is_open()) 
-    {
-        
-        getline(input, r1);    
-        input.close();
-    } 
-    
-    if(!head)
-        {
-        
-        head = newNode; 
-        newNode->next = nullptr; 
-        newNode->data = num;
-        newNode->review = reviews[i];
-       
-        
-        }
-        
-    else
-    {
-        newNode->next = head; 
-        newNode->data = num;
-        newNode->review = reviews[i];
-        head = newNode; 
-        
-    }
-
-    }
-
-     display(head);
-} */
 
 void Movie::display() 
 {
@@ -157,7 +92,7 @@ void Movie::display()
  
 } 
 
-int Movie::addToHead(int i)
+int Movie::addToHead(int j)
 {
     vector<string> review; 
     ifstream input;
@@ -178,17 +113,17 @@ int Movie::addToHead(int i)
         head = newNode; 
         newNode->next = nullptr; 
         newNode->data = num; 
-        //newNode->review = rev; 
+        newNode->review = review[j++]; 
     }
     else 
     {
         newNode->next = head; 
         newNode->data = num;
-        //newNode->review = rev; 
+        newNode->review = review[j++];
         head = newNode; 
     }
     }
 
-    return i; 
+    return j; 
 }
 
