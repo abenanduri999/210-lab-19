@@ -27,7 +27,7 @@ class Movie
         Movie() {head = nullptr;}
         
         void display(Node *);
-        void addToHead();
+        void addToHead(double, string);
         void setTitle(string t) {title = t;}
         string getTitle() const {return title;}
 
@@ -47,13 +47,15 @@ int main() {
     movies.push_back(m3);
     movies.push_back(m4); 
 
-    for(int i = 0; i < movies.size(); i++)
+
+
+    /*for(int i = 0; i < movies.size(); i++)
     {       
         cout<<movies[i].getTitle()<<endl;
         movies[i].addToHead();  
        // movies[i].display(); 
         cout<<endl; 
-    }
+    }*/
 
     return 0; 
 }
@@ -136,3 +138,22 @@ void Movie::display(Node * hd)
         current = current->next; 
     }       
 } */
+
+void Movie::addToHead(double num, string rev)
+{
+    Node * newNode = new Node; 
+
+    if(!head) 
+    {
+        head = newNode; 
+        newNode->next = nullptr; 
+        newNode->data = num; 
+        newNode->review = rev; 
+    }
+    else 
+    {
+        newNode->next = head; 
+        newNode->data = num;
+        newNode->review = rev; 
+    }
+}
