@@ -28,6 +28,7 @@ class Movie
         
         void display();
         void addToHead();
+        
         void setTitle(string t) {title = t;}
         string getTitle() const {return title;}
 
