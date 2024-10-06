@@ -26,8 +26,8 @@ class Movie
         
         Movie() {head = nullptr;}
         
-        void display(Node *);
-        void addToHead(double, string);
+        void display();
+        void addToHead();
         void setTitle(string t) {title = t;}
         string getTitle() const {return title;}
 
@@ -47,15 +47,30 @@ int main() {
     movies.push_back(m3);
     movies.push_back(m4); 
 
+    
+    /*for(int i = 0; i < 3; i++)
+    {
+        double num = rand() % 5; 
+        m1.addToHead(num); 
+    }
+    m1.display(); 
+    cout<<endl; 
+    for(int i = 0; i < 3; i++)
+    {
+        double num = rand() % 5; 
+        m2.addToHead(num); 
+    }
+    m2.display(); */
+    
 
-
-    /*for(int i = 0; i < movies.size(); i++)
+    for(int i = 0; i < movies.size(); i++)
     {       
+        
         cout<<movies[i].getTitle()<<endl;
         movies[i].addToHead();  
-       // movies[i].display(); 
+        movies[i].display(); 
         cout<<endl; 
-    }*/
+    }
 
     return 0; 
 }
@@ -124,36 +139,41 @@ int main() {
     }
 
      display(head);
-} 
+} */
 
-void Movie::display(Node * hd) 
+void Movie::display() 
 {
     Node * current; 
     current = head; 
-    int count = 1; 
+    int count = 0; 
 
-    while(current->next != nullptr) 
+    while(current != nullptr) 
     {
-        cout<<"\tReview #"<<count++<<": "<<current->data<<": "<<current->review<<endl; 
+        cout<<"\tReview #"<<count + 1<<": "<<current->data<<": "<<current->review<<endl; 
         current = current->next; 
+        count++;
     }       
-} */
+} 
 
-void Movie::addToHead(double num, string rev)
+void Movie::addToHead()
 {
+    for(int i = 0; i< SIZE; i++ ) {
     Node * newNode = new Node; 
+    double num = rand() % 5;
 
     if(!head) 
     {
         head = newNode; 
         newNode->next = nullptr; 
         newNode->data = num; 
-        newNode->review = rev; 
+        //newNode->review = rev; 
     }
     else 
     {
         newNode->next = head; 
         newNode->data = num;
-        newNode->review = rev; 
+       // newNode->review = rev; 
+        head = newNode; 
+    }
     }
 }
