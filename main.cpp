@@ -26,7 +26,7 @@ class Movie
         
         Movie() {head = nullptr;}
         
-        void display();
+        void display(Node *);
         void addToHead();
         void setTitle(string t) {title = t;}
         string getTitle() const {return title;}
@@ -51,14 +51,14 @@ int main() {
     {       
         cout<<movies[i].getTitle()<<endl;
         movies[i].addToHead();  
-        movies[i].display(); 
+       // movies[i].display(); 
         cout<<endl; 
     }
 
     return 0; 
 }
 
-void Movie:: addToHead()
+/*void Movie:: addToHead()
 {
     vector <string> reviews; 
         
@@ -91,13 +91,13 @@ void Movie:: addToHead()
     //input.open("input.txt"); 
     
     
-   /* string r1; 
+    string r1; 
     if(input.is_open()) 
     {
         
         getline(input, r1);    
         input.close();
-    } */
+    } 
     
     if(!head)
         {
@@ -121,10 +121,10 @@ void Movie:: addToHead()
 
     }
 
-     //display();
-}
+     display(head);
+} 
 
-void Movie::display() 
+void Movie::display(Node * hd) 
 {
     Node * current; 
     current = head; 
@@ -135,4 +135,4 @@ void Movie::display()
         cout<<"\tReview #"<<count++<<": "<<current->data<<": "<<current->review<<endl; 
         current = current->next; 
     }       
-} 
+} */
