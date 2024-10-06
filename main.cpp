@@ -26,8 +26,8 @@ class Movie
         
         Movie() {head = nullptr;}
         
-        void display(vector<string>);
-        void addToHead();
+        void display();
+        int addToHead(int);
         void setTitle(string t) {title = t;}
         string getTitle() const {return title;}
 
@@ -38,7 +38,7 @@ int main() {
     Movie m1, m2, m3, m4;
     vector<Movie> movies; 
 
-    vector<string> review; 
+   /* vector<string> review; 
     ifstream input;
     input.open("input.txt"); 
     string rev; 
@@ -46,7 +46,7 @@ int main() {
     {
         getline(input, rev);
         review.push_back(rev);
-    }
+    } */
 
 
 
@@ -59,28 +59,13 @@ int main() {
     movies.push_back(m3);
     movies.push_back(m4); 
 
-    
-    /*for(int i = 0; i < 3; i++)
-    {
-        double num = rand() % 5; 
-        m1.addToHead(num); 
-    }
-    m1.display(); 
-    cout<<endl; 
-    for(int i = 0; i < 3; i++)
-    {
-        double num = rand() % 5; 
-        m2.addToHead(num); 
-    }
-    m2.display(); */
-    
-
+    int count = 0; 
     for(int i = 0; i < movies.size(); i++)
     {       
         
         cout<<movies[i].getTitle()<<endl;
-        movies[i].addToHead();   
-        movies[i].display(review); 
+        count = movies[i].addToHead(count);   
+        movies[i].display(); 
         cout<<endl; 
     }
 
@@ -153,29 +138,37 @@ int main() {
      display(head);
 } */
 
-void Movie::display(vector<string> rev) 
+void Movie::display() 
 {
  
 
     Node * current; 
     current = head; 
     int count = 0;
-    int i = 0;  
     
     while(current != nullptr) 
-    {   
-        current->review = rev[i]; 
+    {    
         
         cout<<"\tReview #"<<count + 1<<": "<<current->data<<": "<<current->review<<endl; 
         current = current->next; 
         count++;
-        i++; 
+        
     }  
  
 } 
 
-void Movie::addToHead()
+int Movie::addToHead(int i)
 {
+    vector<string> review; 
+    ifstream input;
+    input.open("input.txt"); 
+    string rev; 
+    while(!input.eof()) 
+    {
+        getline(input, rev);
+        review.push_back(rev);
+    }
+
     for(int i = 0; i< SIZE; i++ ) {
     Node * newNode = new Node; 
     double num = rand() % 5;
@@ -195,5 +188,7 @@ void Movie::addToHead()
         head = newNode; 
     }
     }
+
+    return i; 
 }
 
